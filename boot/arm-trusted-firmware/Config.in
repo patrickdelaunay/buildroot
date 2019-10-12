@@ -135,4 +135,22 @@ config BR2_TARGET_ARM_TRUSTED_FIRMWARE_DEBUG
 	help
 	  Enable this option to build ATF with DEBUG=1.
 
+
+config BR2_TARGET_ARM_TRUSTED_FIRMWARE_FILE_CUSTOM
+	bool "Custom (specify below)"
+	help
+	  On some platforms, the standard ARM Trusted Firmware binary
+	  is not called *.bin. If this is your case, you should select
+	  this option and specify the correct name(s)
+	  in BR2_TARGET_ARM_TRUSTED_FIRMWARE_FORMAT_CUSTOM_NAME.
+
+config BR2_TARGET_ARM_TRUSTED_FIRMWARE_FILE_CUSTOM_NAME
+	string "ATF custom names"
+	depends on BR2_TARGET_ARM_TRUSTED_FIRMWARE_FILE_CUSTOM
+	help
+	  In case the ARM Trusted Firmware binary for the target platform 
+	  is not among the default names, one or more custom names can be
+	  listed here.
+	  Use space to separate multiple names.
+
 endif
